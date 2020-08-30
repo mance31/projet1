@@ -1,0 +1,21 @@
+{% extends "master.html" %}
+
+{% if liste %}
+    {% block title %}
+        <h3>Appel effectué</h3>
+    {% endblock %}
+
+    {% block content %}
+      
+            <h3>{{liste.student}} </h3>
+            <ul>
+                <li>{{liste.date_call}}</li> 
+                <li>{{liste.Reasson}}</li>
+            </ul>
+            <br>
+      <br>
+     
+    {% endblock %}
+{% else %}
+     <p>No student to show.</p>
+{% endif %}

@@ -1,0 +1,23 @@
+{% extends "master.html" %}
+{% block title %}
+    <h3>Create new Student</h3>
+{% endblock %}
+
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        <ul>
+          <li>This field is required.</li>
+        </ul>     
+        {{ form.as_p }}
+        <ul>
+          <li>This field is required.</li>
+        </ul>  
+            
+
+        <div class="boutons">
+            <button class="button radius alert left" type="cancel"><a href="/lycee/">Cancel</a></button>
+            <button class="button radius success right" type="submit">Submit</button>
+        </div>
+    </form>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "master.html" %}
+
+{% if liste %}
+  {% block title %}
+      <h3>Call of roll : {{liste.cursus}}</h3>
+  {% endblock %}
+
+  {% block content %}
+    <form method="POST">
+      {% csrf_token %}
+      <ul>
+        <li>Select date and check if student is missing</li>
+      </ul>
+      
+     <form method="post">
+          {% csrf_token %}
+          Date : <input name="date_call" type="date" class="" value="{{defaultdate|date:"Y-m-d" }}" required>
+          <br>
+          {% for students in liste %}
+            <input type="checkbox" id="{{students.id}}" name="student {{students.id}}" checked>
+            <label for="students {{students.id}}">{{students.first_name }} {{students.last_name}}</label>
+            <br>
+          {% endfor %}
+          <p>Check if the student is present</p>
+          <div>
+            <button class="formstd"><a href="/lycee/">Cancel</a></button>
+            
+
+            <button type="submit" class="boutons_call">Submit</button>
+          </div>
+        </form>
+  {% endblock %}
+{% endif %}
